@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devjobs Board</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #5964e0;
+        --white: #ffffff;
+        --bg: #f4f6f8;
+        --text-main: #19202d;
+        --text-grey: #6e8098;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Kumbh Sans", sans-serif;
+        background-color: var(--bg);
+        padding-bottom: 60px;
+      }
+
+      /* Purple Header Area */
+      .header {
+        background-color: var(--primary);
+        background-image: url("https://raw.githubusercontent.com/dieudonneAnane/devjobs-web-app/main/public/assets/desktop/bg-pattern-header.svg");
+        background-size: cover;
+        height: 160px;
+        border-bottom-left-radius: 80px;
+      }
+
+      .header-content {
+        max-width: 1110px;
+        margin: 0 auto;
+        padding: 40px 24px;
+      }
+
+      .logo {
+        color: white;
+        font-size: 28px;
+      }
+
+      /* Main Layout Container */
+      .container {
+        max-width: 1110px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Search Bar (Overlapping the header) */
+      .search-bar {
+        background: var(--white);
+        display: flex;
+        margin-top: -40px;
+        border-radius: 6px;
+        padding: 16px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .search-input,
+      .location-input {
+        flex: 1;
+        border-right: 1px solid rgba(110, 128, 152, 0.2);
+        padding: 0 16px;
+      }
+
+      .search-bar input {
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+      }
+
+      .search-right {
+        display: flex;
+        align-items: center;
+        padding-left: 16px;
+        gap: 16px;
+      }
+
+      /* Job Grid Layout */
+      .job-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 65px 30px;
+        margin-top: 80px;
+        margin-bottom: 50px;
+      }
+
+      /* Individual Job Box */
+      .job-card {
+        background: var(--white);
+        padding: 32px;
+        border-radius: 6px;
+        position: relative;
+        transition: transform 0.2s;
+      }
+
+      .job-card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* The Floating Logo */
+      .logo-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        position: absolute;
+        top: -25px; /* Floats half-way out of the box */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .logo-box img {
+        width: 30px;
+      }
+
+      /* Text Styles inside Box */
+      .meta {
+        color: var(--text-grey);
+        margin-bottom: 12px;
+      }
+      .title {
+        color: var(--text-main);
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      .company {
+        color: var(--text-grey);
+        margin-bottom: 40px;
+      }
+      .location {
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      /* Buttons */
+      .btn-search,
+      .btn-load {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .btn-load {
+        display: block;
+        margin: 0 auto;
+        padding: 16px 32px;
+      }
+      .btn-search:hover,
+      .btn-load:hover {
+        background: #939bf4;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <h1 class="logo">devjobs</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="search-bar">
+        <div class="search-input">
+          <input
+            class="countryInput"
+            type="text"
+            placeholder="Filter by title, companies..."
+          />
+        </div>
+        <div class="location-input"></div>
+        <div class="search-right">
+          <div class="location-input">
+            <select id="countrySelect">
+              <option value="">Filter by location...</option>
+              <option class="tag" value="uk">United Kingdom</option>
+              <option class="tag" value="usa">United States</option>
+              <option class="tag" value="russia">Russia</option>
+              <option class="tag" value="japan">Japan</option>
+              <option class="tag" value="thailand">Thailand</option>
+              <option class="tag" value="germany">Germany</option>
+              <option class="tag" value="singapore">Singapore</option>
+              <option class="tag" value="nz">New Zealand</option>
+            </select>
+          </div>
+          <button class="btn-search">Search</button>
+        </div>
+      </div>
+
+      <main class="job-grid">
+        <!-- <article class="job-card">
+          <div class="logo-box" style="background-color: #e99210">
+            <img
+              src="https://raw.githubusercontent.com/dieudonneAnane/devjobs-web-app/main/public/assets/logos/scoot.svg"
+              alt=""
+            />
+          </div>
+          <p class="meta">5h ago • Full Time</p>
+          <h2 class="title">Senior Software Engineer</h2>
+          <p class="company">Scoot</p>
+          <p class="location">United Kingdom</p>
+        </article>
+        <article class="job-card">
+          <div class="logo-box" style="background-color: #e54d2e">
+            <img
+              src="https://raw.githubusercontent.com/dieudonneAnane/devjobs-web-app/main/public/assets/logos/blogr.svg"
+              alt=""
+            />
+          </div>
+          <p class="meta">20h ago • Part Time</p>
+          <h2 class="title">Haskell and PureScript Dev</h2>
+          <p class="company">Blogr</p>
+          <p class="location">United States</p>
+        </article>
+
+        <article class="job-card">
+          <div class="logo-box" style="background-color: #3e52a3">
+            <img
+              src="https://raw.githubusercontent.com/dieudonneAnane/devjobs-web-app/main/public/assets/logos/vector.svg"
+              alt=""
+            />
+          </div>
+          <p class="meta">1d ago • Part Time</p>
+          <h2 class="title">Midlevel Back End Engineer</h2>
+          <p class="company">Vector</p>
+          <p class="location">Russia</p>
+        </article> -->
+      </main>
+
+      <button class="btn-load">Load More</button>
+    </div>
+    <script>
+      let btn = document.querySelector(".btn-search");
+      let grid = document.querySelector(".job-grid");
+      let input = document.querySelector(".countryInput");
+      let select = document.getElementById("countrySelect");
+      window.addEventListener("load", async function add() {
+        let url = `./data.json`;
+        let promise = await fetch(url);
+        let data = await promise.json();
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+          let box = document.createElement("div");
+          box.innerHTML = ` <article class="job-card">
+          <div class="logo-box" style="background-color: ${data[i].logoBackground}">
+            <img
+              src="https://raw.githubusercontent.com/dieudonneAnane/devjobs-web-app/main/public/assets/logos/scoot.svg"
+              alt=""
+            />
+          </div>
+          <p class="meta">${data[i].postedAt} • ${data[i].contract}</p>
+          <h2 class="title">${data[i].position}</h2>
+          <p class="company">${data[i].company}</p>
+          <p class="location">${data[i].location}</p>
+        </article>`;
+          grid.appendChild(box);
+          let tag = document.querySelectorAll(".tag");
+          let country = box.querySelector(".location");
+        }
+        btn.addEventListener("click", function () {
+          grid.innerHTML = "";
+          let inp = input.value.toLowerCase();
+          for (let i = 0; i < data.length; i++) {
+            if (data[i].position.toLowerCase().includes(inp)) {
+              let comp = document.createElement("div");
+              comp.innerHTML = ` <article class="job-card">
+          <div class="logo-box" style="background-color: ${data[i].logoBackground}">
+            <img
+              src="https://raw.githubusercontent.com/dieudonneAnane/devjobs-web-app/main/public/assets/logos/scoot.svg"
+              alt=""
+            />
+          </div>
+          <p class="meta">${data[i].postedAt} • ${data[i].contract}</p>
+          <h2 class="title">${data[i].position}</h2>
+          <p class="company">${data[i].company}</p>
+          <p class="location">${data[i].location}</p>
+        </article>`;
+              grid.appendChild(comp);
+            }
+          }
+        });
+
+        select.addEventListener("click", function () {
+          let selected =
+            select.options[select.selectedIndex].textContent.toLowerCase();
+          grid.innerHTML = ``;
+          for (let i = 0; i < data.length; i++) {
+            if (data[i].location.toLowerCase() === selected) {
+              let comp = document.createElement("div");
+              comp.innerHTML = ` <article class="job-card">
+          <div class="logo-box" style="background-color: ${data[i].logoBackground}">
+            <img
+              src="https://raw.githubusercontent.com/dieudonneAnane/devjobs-web-app/main/public/assets/logos/scoot.svg"
+              alt=""
+            />
+          </div>
+          <p class="meta">${data[i].postedAt} • ${data[i].contract}</p>
+          <h2 class="title">${data[i].position}</h2>
+          <p class="company">${data[i].company}</p>
+          <p class="location">${data[i].location}</p>
+        </article>`;
+              grid.appendChild(comp);
+            }
+          }
+        });
+
+        // for (let i = 0; i < tag.length; i++) {
+        //   let cards = document.querySelectorAll(".job-card");
+        //   for (let i = 0; i < cards.length; i++) {
+        //     let location = cards[i].querySelector(".location");
+        //     let clickedlevel = location.textContent;
+        //     if (location !== clickedlevel) {
+        //       cards[i].remove();
+        //     }
+        //   }
+        // }
+
+        // select.addEventListener("click", function () {
+        //   let selected =
+        //     select.options[select.selectedIndex].textContent.toLowerCase();
+        //   grid.innerHTML = "";
+        //   for (let i = 0; i < data.length; i++) {
+        //     if (data[i].location.toLowerCase() === selected.toLowerCase()) {
+        //       let comp = document.createElement("div");
+        //       comp.innerHTML = `
+        // <article class="job-card">
+        //   <div class="logo-box" style="background-color: ${data[i].logoBackground}">
+        //     <img src="https://raw.githubusercontent.com/dieudonneAnane/devjobs-web-app/main/public/assets/logos/scoot.svg" />
+        //   </div>
+        //   <p class="meta">${data[i].postedAt} • ${data[i].contract}</p>
+        //   <h2 class="title">${data[i].position}</h2>
+        //   <p class="company">${data[i].company}</p>
+        //   <p class="location">${data[i].location}</p>
+        // </article>`;
+        //       grid.appendChild(comp);
+        //     }
+        //   }
+        // });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "postedAt": "5h ago",
+    "contract": "Full Time",
+    "position": "Senior Software Engineer",
+    "company": "Scoot",
+    "location": "United Kingdom",
+    "logoBackground": "hsl(36, 87%, 49%)"
+  },
+  {
+    "id": 2,
+    "postedAt": "20h ago",
+    "contract": "Part Time",
+    "position": "Haskell and PureScript Dev",
+    "company": "Blogr",
+    "location": "United States",
+    "logoBackground": "hsl(12, 79%, 52%)"
+  },
+  {
+    "id": 3,
+    "postedAt": "1d ago",
+    "contract": "Part Time",
+    "position": "Midlevel Back End Engineer",
+    "company": "Vector",
+    "location": "Russia",
+    "logoBackground": "hsl(0, 0%, 15%)"
+  },
+  {
+    "id": 4,
+    "postedAt": "2d ago",
+    "contract": "Full Time",
+    "position": "Senior Application Engineer",
+    "company": "Office Lite",
+    "location": "Japan",
+    "logoBackground": "hsl(227, 62%, 48%)"
+  },
+  {
+    "id": 5,
+    "postedAt": "2d ago",
+    "contract": "Part Time",
+    "position": "Remote DevOps Engineer",
+    "company": "Pod",
+    "location": "Thailand",
+    "logoBackground": "hsl(165, 82%, 41%)"
+  },
+  {
+    "id": 6,
+    "postedAt": "4d ago",
+    "contract": "Part Time",
+    "position": "Desktop Support Manager",
+    "company": "Creative",
+    "location": "Germany",
+    "logoBackground": "hsl(295, 55%, 38%)"
+  },
+  {
+    "id": 7,
+    "postedAt": "1w ago",
+    "contract": "Full Time",
+    "position": "iOS Engineer",
+    "company": "Pomodoro",
+    "location": "United States",
+    "logoBackground": "hsl(254, 71%, 45%)"
+  },
+  {
+    "id": 8,
+    "postedAt": "1w ago",
+    "contract": "Full Time",
+    "position": "Senior EJB Developer",
+    "company": "Maker",
+    "location": "United Kingdom",
+    "logoBackground": "hsl(218, 58%, 31%)"
+  },
+  {
+    "id": 9,
+    "postedAt": "1w ago",
+    "contract": "Part Time",
+    "position": "Senior Frontend Developer",
+    "company": "Coffeeroasters",
+    "location": "Singapore",
+    "logoBackground": "hsl(29, 60%, 87%)"
+  },
+  {
+    "id": 10,
+    "postedAt": "1mo ago",
+    "contract": "Part Time",
+    "position": "Fullstack Developer",
+    "company": "Crowdfund",
+    "location": "New Zealand",
+    "logoBackground": "hsl(157, 57%, 50%)"
+  }
+]
